@@ -6,8 +6,8 @@ module FSM2 #(parameter DATAW=10)
            input  income,
            input [(2*DATAW-1):0] Data,
            input [(4*DATAW-1):0] Key,
-           output reg [DATAW-1:0]keyout,
-           output reg [DATAW-1:0]dataout,
+           output reg [DATAW:0]keyout,
+           output reg [DATAW:0]dataout,
            output reg dctr,
            output reg kctr,
            output reg save,
@@ -39,9 +39,9 @@ case (state)
           save<=1'b1;
           set <=0;
           lfsrset<=1;
-          
+      
        end 
-       else set<=1;
+       else set <=1; 
     end
     
     s2 : begin
